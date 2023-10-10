@@ -25,7 +25,7 @@ fn parse_args(args: Vec<String>) -> Result<GitCommand, &'static str> {
 
 
 fn main() {
-    let test = BaseDirectories::with_prefix("multigit").unwrap();
+    let test = BaseDirectories::with_prefix("multigit").unwrap(); 
 
     println!("{}", test.get_config_home().display());
 
