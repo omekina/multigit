@@ -1,6 +1,3 @@
-pub const CONFIG_PATH: &'static str = "/home/user/.mgitconfig"; // Replace with your config filepath
-
-
 mod systemhandler;
 mod configloader;
 use std::{process::exit, env::args};
