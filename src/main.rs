@@ -4,6 +4,7 @@ pub const CONFIG_PATH: &'static str = "/home/user/.mgitconfig"; // Replace with 
 mod systemhandler;
 mod configloader;
 use std::{process::exit, env::args};
+use xdg::BaseDirectories;
 
 use systemhandler::{ GitCommand, CommandResult::{ CommandOk, CommandError, WrapperError } };
 
@@ -24,6 +25,10 @@ fn parse_args(args: Vec<String>) -> Result<GitCommand, &'static str> {
 
 
 fn main() {
+    let test = BaseDirectories::with_prefix("multigit").unwrap();
+
+    println!("{}", test.get_config_home().display());
+
     let mut git_command = match parse_args(args().collect()) {
         Ok(result) => result,
         Err(detail) => {

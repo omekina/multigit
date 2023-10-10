@@ -10,3 +10,4 @@ strip = true
 panic = "abort"
 
 [dependencies]
+xdg = "2.5.2"
