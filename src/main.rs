@@ -31,6 +31,7 @@ fn main() {
             exit(1);
         },
     };
+
     git_command.ssh_command = match configloader::run(git_command.ssh_command) {
         Ok(result) => String::from("ssh -i ") + result.as_str(),
         Err(detail) => {
@@ -38,6 +39,7 @@ fn main() {
             exit(1);
         },
     };
+    
     match systemhandler::run_git_command(git_command) {
         CommandOk() => exit(0),
         CommandError() => exit(1),
